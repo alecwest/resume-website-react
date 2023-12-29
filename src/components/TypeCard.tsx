@@ -4,6 +4,7 @@ import { ResumeEntry, ResumeEntryTypeEnum } from "../api/v1";
 import { Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { titleCase } from "@/lib/stringUtils";
 import RankCard from "./RankCard";
+import BioCard from "./BioCard";
 
 interface TypeCardProps {
   resumeEntries: ResumeEntry[];
@@ -14,7 +15,7 @@ const TypeCard = ({ resumeEntries }: TypeCardProps) => {
 
   const content = () => {
     if (type === ResumeEntryTypeEnum.Bio) {
-      return "headerCard";
+      return <BioCard resumeEntry={resumeEntries[0]} />;
     } else if (
       resumeEntries.every(
         (entry) =>
