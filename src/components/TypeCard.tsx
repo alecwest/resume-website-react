@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { titleCase } from "@/lib/stringUtils";
 import RankCard from "./RankCard";
 import BioCard from "./BioCard";
+import AccordionCard from "./AccordionCard";
 
 interface TypeCardProps {
   resumeEntries: ResumeEntry[];
@@ -25,7 +26,7 @@ const TypeCard = ({ resumeEntries }: TypeCardProps) => {
           )
       )
     ) {
-      return "newDataGrid";
+      return <AccordionCard resumeEntries={resumeEntries} />;
     } else if (resumeEntries.every((entry) => entry.details.proficiency)) {
       return <RankCard resumeEntries={resumeEntries} />;
     } else {
