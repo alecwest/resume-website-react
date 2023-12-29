@@ -464,13 +464,12 @@ export default function ResumeDataProvider({
 }) {
   const [resumeData, setResumeData] = useState<ResumeEntriesByType>();
 
-  const resumeDataClient = new ResumeDataClient();
-
   useEffect(() => {
+    const resumeDataClient = new ResumeDataClient();
     resumeDataClient
       .getEntriesByType("alecwest") // TODO how do I make this changeable?
       .then((response) => setResumeData(response));
-  });
+  }, []);
 
   return (
     <ResumeDataContext.Provider value={[resumeData, setResumeData]}>
